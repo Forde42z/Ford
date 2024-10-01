@@ -1,20 +1,24 @@
-@charset "utf-8";
-/* CSS Document */
+:root {
+    --primary-color: #074A04;
+    --text-color: #074A04;
+    --secondary-color: #ffffff;
+}
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poiret One", sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--secondary-color);
 }
 
 header {
-    background:#074A04;
-    color: #ffffff;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     padding: 20px 0;
     text-align: center;
 }
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -26,28 +30,104 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #35424a;
+    color: var(--text-color);
     text-decoration: none;
 }
 
+nav ul li a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
 section {
+    color: var(--text-color);
     padding: 20px;
     margin: 20px;
-    background: #ffffff;
+    background: var(--secondary-color);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Advanced Selector Examples */
+#projects button:nth-of-type(2) {
+    background-color: none; /* Special color for second button */
+    color: black;
+}
+
+#about p:first-of-type {
+    font-size: 1.2em; /* Bigger font for the first paragraph */
+}
+
+#contact a {
+    color: #e74c3c; /* Unique color for contact links */
+}
+
+section:hover {
+    background-color: #f4f4f4; /* Light background on hover */
 }
 
 .project {
     margin: 15px 0;
 }
 
+button {
+    padding: 0.5em;
+    margin: 0.3em;
+    font-size: 100%;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+}
+
+button:active {
+    font-size: 110%;
+}
+
+button:focus {
+    border: 3px solid black;
+}
+
 footer {
     text-align: center;
     padding: 20px 0;
-    background: #074A04;
-    color: #ffffff;
+    background: var(--primary-color);
+    color: var(--secondary-color);
     position: relative;
     bottom: 0;
     width: 100%;
+}
+/* Style for last paragraph in footer */
+footer p:last-child {
+    font-style: italic; /* Italicize the last paragraph */
+}
+@media (max-width: 600px) {
+    nav ul li {
+        display: block; /* Stack links vertically */
+        margin: 10px 0;
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: flex-start; /* Align text to the left */
+    }
+
+    .about-content img {
+        max-width: 100%; /* Full width on small screens */
+        margin: 0 0 10px 0; /* Adjust margin */
+    }
+	.about-content p {
+    line-height: 1.6; /* Increases line spacing for better readability */
+    margin: 10px 0; /* Adds margin around the paragraph */
+    font-size: 1em; /* Sets a base font size */
+    max-width: 600px; /* Limits width for better readability */
+}
+
+
+    section {
+        margin: 5px; /* Reduce margin for smaller screens */
+    }
+
+    button {
+        width: 100%; /* Full width buttons */
+    }
 }
